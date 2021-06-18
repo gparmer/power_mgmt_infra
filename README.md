@@ -47,5 +47,10 @@ You can run this, and then run one of the example programs to test connectivity 
 
 ## Running with overlay tester
 
-Once you have successfully built sunneed and verified that the `build/sunneed` binary has been made, we can run the overlay tester to verify that sunneed is correctly intercepting `open()` and `write()` requests. *Pro tip: open a second terminal so that you don't have to type around the sunneed log prints.* Execute the sunneed binary by running `sudo ./sunneed &`. Note that the `&` is not necessary if you are running in a second terminal. In your second terminal or after sunneed begins execution, we can run the overlay_tester located in `sunneed/build/test_progs/`. Before running it, we have to `LD_PRELOAD` SunneeD's overlay so that the `open()` and `write()` calls are redirected correctly. You can do all of this with the following command: `LD_PRELOAD=<absolute path to sunneed_overlay.so> ./build/test_progs/overlay_tester` from the sunneed directory. **Note: the argument to LD_PRELOAD must be the ABSOLUTE path of sunneed_overlay.so, using a relative path will not work.**
+Once you have successfully built sunneed and verified that the `build/sunneed` binary has been made, we can run the overlay tester to verify that sunneed is correctly intercepting `open()` and `write()` requests. *Pro tip: open a second terminal so that you don't have to type around the sunneed log prints.* Execute the sunneed binary by running `sudo ./sunneed &`. Note that the `&` is not necessary if you are running in a second terminal. 
+![Sunneed](./res/Run_SunneeD.JPG)
+
+In your second terminal or after sunneed begins execution, we can run the overlay_tester located in `sunneed/build/`. Before running it, we have to `LD_PRELOAD` SunneeD's overlay so that the `open()` and `write()` calls are redirected correctly. You can do all of this with the following command: `LD_PRELOAD=<absolute path to sunneed_overlay.so> ./build/overlay_tester` from the sunneed directory. **Note: the argument to LD_PRELOAD must be the ABSOLUTE path of sunneed_overlay.so, using a relative path will not work.**
+
+![Overlay_test](./res/Run_Overlay_LDPRELOAD.JPG)
 <!-- vim: set tw=120: -->
